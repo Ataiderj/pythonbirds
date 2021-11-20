@@ -74,7 +74,7 @@ def rebobina(delta_t, fase, passo, tempo, msg):
     return tempo
 
 
-def animar(fase, passo=0.1, delta_t=0.1):
+def animar(fase, passo=0.1, delta_t=0.1) -> object:
     tempo = 0
     tempo_final = _jogar(delta_t, fase, passo, tempo, 'Play!')
     if input('Deseja ver o Replay? (s para sim): ').lower() == 's':
