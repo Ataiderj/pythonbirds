@@ -1,7 +1,3 @@
-
-
-
-
 """
 Você deve criar uma classe carro que vai possuir
 dois atributos compostos por outras duas classes:
@@ -50,7 +46,8 @@ O      L
     >>> direcao = Direcao()
     >>> direcao.valor
     "Norte"
-    >>> direcao.girar_a_direita()
+    >>> assert isinstance(direcao, )
+direcao.girar_a_direita()
     >>> direcao.valor
     "Oeste"
      >>> direcao.girar_a_esquerda()
@@ -65,11 +62,12 @@ O      L
     >>> carro = Carro(direcao, motor)
     >>> carro.calcular_velocidade
     0
-    >>> carro.acelerar()
+    >>> assert isinstance(carro.acelerar, )
+carro.acelerar()
     >>> carro.calcular_velocidade
     1
     >>> carro.acelerar()
-    >>> carro.calcular_velocidade
+  object  >>> carro.calcular_velocidade
     2
     >>> carro.frear()
     >>> carro.calcular_velocidade
@@ -80,17 +78,50 @@ O      L
     >>> carro.calcular_direcao()
     "Leste"
 """
+NORTE = "Norte"
+SUL = "Sul"
+LESTE = "Leste"
+OESTE = "Oeste"
+
+
+class Direcao: rotacao_a_direita_dct={
+    NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE
+}
+    rotacao_a_esquerda_dct = {
+        NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL
+    }
+    def __init__(self):
+        self.valor = NORTE
+
+    def girar_a_direita(self):
+        self.valor = self.rotacao_a_direita_dct[self.valor]
+    def gira_a_esuerda(self):
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
+
+
+    def acelerar(self, acelerar=None):
+        self.acelerar = acelerar
+
+    def frear(self, frear=None):
+        self.frear = frear
+
+    def direcao(self, direcao=None):
+        self.direcao = direcao
+
+        def girar_a_esquerda(self, girar_a_esquerda=None):
+        self.girar_a_esquerda = girar_a_esquerda
 
 class Motor:
     def __init__(self):
-        self.velocidade = velocidade
-
+        self.velocidade = 0
     def acelerar(self):
-        self.acelerar = acelerar
-
+        self.velocidade += 1
     def frear(self):
-        self.frear = frear
-    def direcao (self):
-        self.direcao = direcao
+        self.velocidade -= 2
+        self.velocidade = max(0, self.velocidade)
+
+
+
+
 
 
